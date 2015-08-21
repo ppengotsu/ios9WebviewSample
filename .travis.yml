@@ -9,7 +9,10 @@ osx_image: xcode6.4
         - xctool -workspace ios9WebviewSample.xcworkspace -scheme ios9WebviewSample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
               
    after_success:
-
+        - echo "success"
 
    after_failure:
-   
+      - echo "failure"
+
+
+
