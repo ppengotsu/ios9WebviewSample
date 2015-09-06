@@ -48,7 +48,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
         NSLog("URL=%@", urlString)
         
         if (urlString .hasPrefix("http://")
-            || urlString .hasPrefix("https://")){
+            || urlString .hasPrefix("https://")
+            || urlString .hasPrefix("file://")){
             
                 return true
         }
