@@ -26,9 +26,9 @@ class PPWKWebViewController: UIViewController{
         closeButton.addTarget(self, action: "touchedCloseButton:", forControlEvents: .TouchUpInside)
         self.view.addSubview(closeButton)
         
-        //WebView
+        //WKWebView
         self.webView.frame = CGRect(x: 0, y: 100, width: self.view.bounds.width, height: self.view.bounds.height - 100)
-        //webview.delegate = self;
+        
         self.view.addSubview(self.webView)
         
         
