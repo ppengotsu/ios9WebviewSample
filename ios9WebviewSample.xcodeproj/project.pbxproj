@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440C61111B9C99FD00714798 /* PPUIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440C61101B9C99FD00714798 /* PPUIWebViewController.swift */; };
+		440C61131B9C9A4500714798 /* PPWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440C61121B9C9A4500714798 /* PPWKWebViewController.swift */; };
 		446005FF1B8775A500A27A7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446005FE1B8775A500A27A7C /* AppDelegate.swift */; };
 		446006011B8775A500A27A7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446006001B8775A500A27A7C /* ViewController.swift */; };
 		446006041B8775A500A27A7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446006021B8775A500A27A7C /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		440C61101B9C99FD00714798 /* PPUIWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPUIWebViewController.swift; sourceTree = "<group>"; };
+		440C61121B9C9A4500714798 /* PPWKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPWKWebViewController.swift; sourceTree = "<group>"; };
 		446005FB1B8775A500A27A7C /* ios9WebviewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios9WebviewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		446005FE1B8775A500A27A7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		446006001B8775A500A27A7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			children = (
 				446005FE1B8775A500A27A7C /* AppDelegate.swift */,
 				446006001B8775A500A27A7C /* ViewController.swift */,
+				440C61101B9C99FD00714798 /* PPUIWebViewController.swift */,
+				440C61121B9C9A4500714798 /* PPWKWebViewController.swift */,
 				446006021B8775A500A27A7C /* Main.storyboard */,
 				446006051B8775A500A27A7C /* Assets.xcassets */,
 				446006071B8775A500A27A7C /* LaunchScreen.storyboard */,
@@ -256,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				446006011B8775A500A27A7C /* ViewController.swift in Sources */,
+				440C61131B9C9A4500714798 /* PPWKWebViewController.swift in Sources */,
+				440C61111B9C99FD00714798 /* PPUIWebViewController.swift in Sources */,
 				446005FF1B8775A500A27A7C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +489,7 @@
 				446006251B8775A600A27A7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		446006261B8775A600A27A7C /* Build configuration list for PBXNativeTarget "ios9WebviewSampleTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +498,7 @@
 				446006281B8775A600A27A7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		446006291B8775A600A27A7C /* Build configuration list for PBXNativeTarget "ios9WebviewSampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +507,7 @@
 				4460062B1B8775A600A27A7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
