@@ -77,44 +77,21 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     // MARK: ボタン押した時
-    
-    /**
-    UIWebViewボタンを押したとき
-    
-    :param: sender
-    */
-    @IBAction func touchedUIWebViewButton(sender: AnyObject){
-        let urlString:String = urlTextField.text!
-        if (isInputURL(urlString) == false){
-            //URLが正しくない
-            showUrlAlert()
-            return
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //ちょっとごり押し
+        if segue.identifier == "webView" {
+            let nextNavigationController = segue.destinationViewController as! UINavigationController
+            let nextViewController = nextNavigationController.viewControllers[0] as! PPUIWebViewController
+            nextViewController.viewUrlString = urlTextField.text!
+            
+        }else if segue.identifier == "wkWebView" {
+            let nextNavigationController = segue.destinationViewController as! UINavigationController
+            let nextViewController = nextNavigationController.viewControllers[0] as! PPWKWebViewController
+            nextViewController.viewUrlString = urlTextField.text!
         }
-        
-        let vc: PPUIWebViewController =  PPUIWebViewController()
-        vc.setURLString(urlString)
-        presentViewController(vc, animated: true, completion: nil)
     }
     
-    /**
-    WKWebViewボタンを押したとき
     
-    :param: sender
-    */
-    @IBAction func touchedWKWebViewButton(sender: AnyObject){
-        let urlString:String = urlTextField.text!
-        if (isInputURL(urlString) == false){
-            //URLが正しくない
-            showUrlAlert()
-            return
-        }
-        
-        let vc: PPWKWebViewController =  PPWKWebViewController()
-        vc.setURLString(urlString)
-        presentViewController(vc, animated: true, completion: nil)
-        
-        
-    }
     
     /**
     SFSafariViewControllerボタンを押したとき

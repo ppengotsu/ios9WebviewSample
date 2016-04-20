@@ -12,7 +12,8 @@ import WebKit
 
 class PPWKWebViewController: UIViewController{
     
-    var webView: WKWebView = WKWebView()
+    @IBOutlet var baseWebView:UIView!
+    var webView: WKWebView!
     var viewUrlString: String = ""
     
     override func viewDidLoad() {
@@ -20,17 +21,13 @@ class PPWKWebViewController: UIViewController{
         // Do any additional setup after loading the view, typically from a nib.
         
         //ボタン
-        let closeButton: UIButton = UIButton();
-        closeButton.frame = CGRectMake(self.view.frame.width - 100, 50, 100, 50)
-        closeButton.setTitle("閉じる", forState:UIControlState.Normal)
-        closeButton.addTarget(self, action: "touchedCloseButton:", forControlEvents: .TouchUpInside)
-        self.view.addSubview(closeButton)
+        //ナビボタン追加
+        let rightButton = UIBarButtonItem(title: "閉じる"
+            , style:UIBarButtonItemStyle.Plain , target: self, action:   #selector(self.touchedCloseButton(_:)))
+        self.navigationItem.setRightBarButtonItem(rightButton, animated: true)
         
-        //WKWebView
-        self.webView.frame = CGRect(x: 0, y: 100, width: self.view.bounds.width, height: self.view.bounds.height - 100)
-        
-        self.view.addSubview(self.webView)
-        
+        self.webView = WKWebView(frame: baseWebView.frame)
+        self.baseWebView.addSubview(self.webView)
         
         let url: NSURL = NSURL(string: viewUrlString)!
         let urlRequest: NSURLRequest = NSURLRequest(URL: url)
@@ -49,6 +46,9 @@ class PPWKWebViewController: UIViewController{
         viewUrlString = urlString
     }
     
+    override func viewDidLayoutSubviews() {
+        self.webView.frame = self.baseWebView.frame
+    }
     
     internal func touchedCloseButton(sender:UIButton){
         dismissViewControllerAnimated(true, completion: nil)
