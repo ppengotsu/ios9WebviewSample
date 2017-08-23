@@ -23,15 +23,15 @@ class PPWKWebViewController: UIViewController{
         //ボタン
         //ナビボタン追加
         let rightButton = UIBarButtonItem(title: "閉じる"
-            , style:UIBarButtonItemStyle.Plain , target: self, action:   #selector(self.touchedCloseButton(_:)))
-        self.navigationItem.setRightBarButtonItem(rightButton, animated: true)
+            , style:UIBarButtonItemStyle.plain , target: self, action:   #selector(self.touchedCloseButton(_:)))
+        self.navigationItem.setRightBarButton(rightButton, animated: true)
         
         self.webView = WKWebView(frame: baseWebView.frame)
         self.baseWebView.addSubview(self.webView)
         
-        let url: NSURL = NSURL(string: viewUrlString)!
-        let urlRequest: NSURLRequest = NSURLRequest(URL: url)
-        self.webView.loadRequest(urlRequest)
+        let url: URL = URL(string: viewUrlString)!
+        let urlRequest: URLRequest = URLRequest(url: url)
+        self.webView.load(urlRequest)
         
     }
     
@@ -41,7 +41,7 @@ class PPWKWebViewController: UIViewController{
     }
     
     
-    func setURLString(urlString: String){
+    func setURLString(_ urlString: String){
         
         viewUrlString = urlString
     }
@@ -50,7 +50,7 @@ class PPWKWebViewController: UIViewController{
         self.webView.frame = self.baseWebView.frame
     }
     
-    internal func touchedCloseButton(sender:UIButton){
-        dismissViewControllerAnimated(true, completion: nil)
+    internal func touchedCloseButton(_ sender:UIButton){
+        dismiss(animated: true, completion: nil)
     }
 }

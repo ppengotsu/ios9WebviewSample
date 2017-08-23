@@ -28,11 +28,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     // MARK: テキストフィールド
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
         return true
@@ -44,7 +44,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     :returns: 正しければtrue
     */
-    func isInputURL(let urlString:String) -> Bool{
+    func isInputURL(_ urlString:String) -> Bool{
         NSLog("URL=%@", urlString)
         
         if (urlString .hasPrefix("http://")
@@ -62,30 +62,30 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func showUrlAlert(){
         let alertController:UIAlertController = UIAlertController(title: "URL不備",
             message: "URLの確認してください。",
-            preferredStyle: UIAlertControllerStyle.Alert)
+            preferredStyle: UIAlertControllerStyle.alert)
         
         
         let cancelAction:UIAlertAction = UIAlertAction(title: "はい",
-            style: UIAlertActionStyle.Cancel,
+            style: UIAlertActionStyle.cancel,
             handler: {
                 (action:UIAlertAction!) -> Void in
         })
         
         alertController.addAction(cancelAction)
         
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: ボタン押した時
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //ちょっとごり押し
         if segue.identifier == "webView" {
-            let nextNavigationController = segue.destinationViewController as! UINavigationController
+            let nextNavigationController = segue.destination as! UINavigationController
             let nextViewController = nextNavigationController.viewControllers[0] as! PPUIWebViewController
             nextViewController.viewUrlString = urlTextField.text!
             
         }else if segue.identifier == "wkWebView" {
-            let nextNavigationController = segue.destinationViewController as! UINavigationController
+            let nextNavigationController = segue.destination as! UINavigationController
             let nextViewController = nextNavigationController.viewControllers[0] as! PPWKWebViewController
             nextViewController.viewUrlString = urlTextField.text!
         }
@@ -98,7 +98,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     :param: sender
     */
-    @IBAction func touchedSFSafariViewControllerButton(sender: AnyObject){
+    @IBAction func touchedSFSafariViewControllerButton(_ sender: AnyObject){
         let urlString:String = urlTextField.text!
         if (isInputURL(urlString) == false){
             //URLが正しくない
@@ -106,10 +106,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
             return
         }
         
-        let safariVC = SFSafariViewController(URL: NSURL(string: urlString)!)
+        let safariVC = SFSafariViewController(url: URL(string: urlString)!)
         
         
-        presentViewController(safariVC, animated: true, completion: nil)
+        present(safariVC, animated: true, completion: nil)
     }
     
     /**
@@ -117,7 +117,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     :param: sender
     */
-    @IBAction func touchedNormalSafariButton(sender: AnyObject){
+    @IBAction func touchedNormalSafariButton(_ sender: AnyObject){
         let urlString:String = urlTextField.text!
         if (isInputURL(urlString) == false){
             //URLが正しくない
@@ -125,7 +125,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             return
         }
         
-        UIApplication.sharedApplication().openURL(NSURL(string: urlString)!)
+        UIApplication.shared.openURL(URL(string: urlString)!)
         
         
     }

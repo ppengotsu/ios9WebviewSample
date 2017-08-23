@@ -21,12 +21,12 @@ class PPUIWebViewController: UIViewController{
         //ボタン
         //ナビボタン追加
         let rightButton = UIBarButtonItem(title: "閉じる"
-            , style:UIBarButtonItemStyle.Plain , target: self, action:   #selector(PPUIWebViewController.touchedCloseButton(_:)))
-        self.navigationItem.setRightBarButtonItem(rightButton, animated: true)
+            , style:UIBarButtonItemStyle.plain , target: self, action:   #selector(PPUIWebViewController.touchedCloseButton(_:)))
+        self.navigationItem.setRightBarButton(rightButton, animated: true)
 
        
-        let url: NSURL = NSURL(string: viewUrlString)!
-        let urlRequest: NSURLRequest = NSURLRequest(URL: url)
+        let url: URL = URL(string: viewUrlString)!
+        let urlRequest: URLRequest = URLRequest(url: url)
         self.webView.loadRequest(urlRequest)
         
     }
@@ -37,14 +37,14 @@ class PPUIWebViewController: UIViewController{
     }
     
     
-    func setURLString(urlString: String){
+    func setURLString(_ urlString: String){
         
         viewUrlString = urlString
     }
     
     
-    internal func touchedCloseButton(sender:UIBarButtonItem){
-        dismissViewControllerAnimated(true, completion: nil)
+    internal func touchedCloseButton(_ sender:UIBarButtonItem){
+        dismiss(animated: true, completion: nil)
     }
 }
 
