@@ -12,9 +12,9 @@ import WebKit
 
 class PPWKWebViewController: UIViewController{
     
-    @IBOutlet var baseWebView:UIView!
-    var webView: WKWebView!
-    var viewUrlString: String = ""
+    @IBOutlet var baseView:UIView! //WKWebviewを設置するview
+    var mainWebView: WKWebView!    //メインのwebview
+    var viewUrlString: String = "" //前の画面で入力されたURL文字列
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +26,19 @@ class PPWKWebViewController: UIViewController{
             , style:UIBarButtonItemStyle.plain , target: self, action:   #selector(self.touchedCloseButton(_:)))
         self.navigationItem.setRightBarButton(rightButton, animated: true)
         
-        self.webView = WKWebView(frame: baseWebView.frame)
-        self.baseWebView.addSubview(self.webView)
         
-        let url: URL = URL(string: viewUrlString)!
+        
+        
+        //メインのwebviewの設定
+        self.mainWebView = WKWebView(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: baseView.frame.width,
+                                                   height: baseView.frame.height))
+        self.baseView.addSubview(self.mainWebView)
+        
+        let url: URL = URL(string: viewUrlString)!//前の画面で入力されたURL文字列を設定
         let urlRequest: URLRequest = URLRequest(url: url)
-        self.webView.load(urlRequest)
+        self.mainWebView.load(urlRequest)
         
     }
     
@@ -47,10 +54,25 @@ class PPWKWebViewController: UIViewController{
     }
     
     override func viewDidLayoutSubviews() {
-        self.webView.frame = self.baseWebView.frame
+        self.mainWebView.frame = CGRect(x: 0, y: 0, width: self.baseView.frame.width, height: self.baseView.frame.height)
+        
+        super.viewDidLayoutSubviews()
     }
     
     internal func touchedCloseButton(_ sender:UIButton){
         dismiss(animated: true, completion: nil)
     }
 }
+
+
+//WKWebviewのdelegate系列1
+extension PPWKWebViewController:WKUIDelegate{
+    
+}
+
+
+//WKWebviewのdelegate系列2
+extension PPWKWebViewController:WKNavigationDelegate{
+    
+}
+

@@ -198,6 +198,7 @@
 				TargetAttributes = {
 					446005FA1B8775A500A27A7C = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 3MRQKBPT69;
 						LastSwiftMigration = 0830;
 					};
 					4460060E1B8775A600A27A7C = {
@@ -407,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3MRQKBPT69;
 				INFOPLIST_FILE = ios9WebviewSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ppen.ios.sample.ios9WebviewSample;
@@ -419,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3MRQKBPT69;
 				INFOPLIST_FILE = ios9WebviewSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ppen.ios.sample.ios9WebviewSample;
